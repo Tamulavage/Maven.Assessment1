@@ -16,6 +16,11 @@ public class PetOwner {
     public PetOwner(String name, Pet... pets) {
          this.name = name;
          this.pets = pets;
+         if(this.pets != null){
+         for(Pet ele: pets)  {
+             ele.setOwner(this);
+         }}
+
     }
 
     public PetOwner(String name) {
@@ -26,12 +31,18 @@ public class PetOwner {
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
+        int len = 1;
 
 
-        Pet[] newPet = new Pet[1];
+        if(this.pets != null) {
+            len = this.pets.length;
 
-        newPet[0] = pet;
-        newPet[0].setOwner(this);
+        }
+            Pet[] newPet = new Pet[len];
+
+            newPet[len-1] = pet;
+            newPet[len-1].setOwner(this);
+
 
         this.pets = newPet;
     }
