@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -32,26 +34,27 @@ public class ArrayUtils {
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
 
-      // Get count minus removed values
-   /*     int occurrences = getNumberOfOccurrences(objectArray, objectToRemove);
 
-       // Object[] retVal = new Object[objectArray.length - occurrences];
-       // Object[] retVal = new Object[objectArray.length ];
-        Object[] retVal = new Object[10];
-
-        for(int  newArrayIndex=0, index = 0; index < objectArray.length ;newArrayIndex++, index++ )
-        {
-            if(objectToRemove.equals(objectArray[index])){
-                if(index<(objectArray.length-1))
-                {
-                    index++;
-                }
+        ArrayList<Object>  tempArrayList = new ArrayList<>();
+        for(int i =0; i<objectArray.length;i++) {
+            if(objectArray[i].equals(objectToRemove))
+            {
+                // do nothing
             }
-            retVal[newArrayIndex] = objectArray[index];
+            else
+            {
+                tempArrayList.add(objectArray[i]);
+            }
+
         }
-*/
-      //  return retVal;
-        return objectArray;
+
+        // convert back to object array
+        int size = tempArrayList.size();
+       Integer[] retVal = new Integer[size];
+        tempArrayList.toArray(retVal);
+      //  Object[] retVal = tempArrayList.toArray();
+        return  retVal;
+
     }
 
     /**
@@ -108,18 +111,22 @@ public class ArrayUtils {
 
        Integer len1 = objectArray.length ;
        Integer len2 = objectArrayToAdd.length ;
+       int size = len1+len2;
 
-        Object[] retVal = new Object[len1+ len2];
-/*
+
+        ArrayList<Object>  tempArrayList = new ArrayList<>();
+
         for(int i=0; i< objectArray.length; i++) {
-            retVal[i] = objectArray[i];
+            tempArrayList.add( objectArray[i]);
         }
 
         for(int j=0; j<objectArrayToAdd.length; j++) {
-            retVal[j+objectArray.length] = objectArray[j];
-        }*/
+            tempArrayList.add( objectArrayToAdd[j]);
+        }
 
-       // return retVal;
-        return objectArray;
+        Integer[] retVal = new Integer[size];
+        tempArrayList.toArray(retVal);
+
+       return retVal;
     }
 }
