@@ -4,7 +4,7 @@ package com.zipcodewilmington.assessment1.part3;
  * Created by leon on 2/16/18.
  */
 public abstract class Pet implements Animal {
-    String name;
+    String petName;
     Integer age;
     PetOwner owner;
     /**
@@ -13,14 +13,14 @@ public abstract class Pet implements Animal {
      */
     public Pet() {
         this.age = 0;
-        this.name = "";
+        this.petName = "";
     }
 
     /**
      * @param name name of this pet
      */
     public Pet(String name) {
-        this.name = name;
+        this.petName = name;
         this.age = 0;
     }
 
@@ -30,7 +30,7 @@ public abstract class Pet implements Animal {
      */
     public Pet(int age) {
         this.age = age;
-        this.name = "";
+        this.petName = "";
     }
 
     /**
@@ -38,7 +38,7 @@ public abstract class Pet implements Animal {
      * @param age age of this pet
      */
     public Pet(String name, int age) {
-        this.name = name;
+        this.petName = name;
         this.age = age;
     }
 
@@ -46,7 +46,7 @@ public abstract class Pet implements Animal {
      * @return name of this pet
      */
     public String getName() {
-        return this.name;
+        return this.petName;
     }
 
     /**
@@ -69,6 +69,8 @@ public abstract class Pet implements Animal {
      * @return PetOwner object whose composite `pets` collection contains this Pet instance
      */
     public PetOwner getOwner() {
+
+
         return this.owner;
     }
 }
